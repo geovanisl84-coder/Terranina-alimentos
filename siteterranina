@@ -1,0 +1,1115 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terranina Alimentos Ltda - Temperos Gourmet e Tradicionais</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            box-sizing: border-box;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #2d5016 0%, #4a7c59 50%, #8fbc8f 100%);
+        }
+        
+        .product-card {
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(45, 80, 22, 0.2);
+            border-color: #4a7c59;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #2d5016, #4a7c59);
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            background: linear-gradient(135deg, #1a2f0c, #2d5016);
+            transform: translateY(-2px);
+        }
+        
+        .section-fade {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+        
+        .section-fade.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .floating-whatsapp {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+        
+        .hero-pattern {
+            background-image: 
+                radial-gradient(circle at 25% 25%, rgba(255,255,255,0.1) 2px, transparent 2px),
+                radial-gradient(circle at 75% 75%, rgba(255,255,255,0.1) 2px, transparent 2px);
+            background-size: 50px 50px;
+        }
+
+        /* Animações para WhatsApp */
+        @keyframes whatsapp-pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
+        .whatsapp-pulse {
+            animation: whatsapp-pulse 2s infinite;
+        }
+
+        @keyframes ripple {
+            0% {
+                transform: scale(0.8);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(2.4);
+                opacity: 0;
+            }
+        }
+
+        .whatsapp-ripple {
+            animation: ripple 1.5s infinite;
+        }
+    </style>
+</head>
+<body class="font-sans">
+    <!-- Header -->
+    <header class="gradient-bg text-white shadow-lg sticky top-0 z-50">
+        <nav class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-3">
+                    <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center">
+                        <span class="text-2xl font-bold text-green-700">T</span>
+                    </div>
+                    <div>
+                        <h1 class="text-xl font-bold">Terranina Alimentos Ltda</h1>
+                        <p class="text-sm opacity-90">Temperos que fazem a diferença</p>
+                    </div>
+                </div>
+                
+                <div class="hidden md:flex space-x-6">
+                    <a href="#inicio" class="hover:text-green-200 transition-colors">Início</a>
+                    <a href="#produtos" class="hover:text-green-200 transition-colors">Produtos</a>
+                    <a href="#orcamento" class="hover:text-green-200 transition-colors">Orçamento</a>
+                    <a href="#sobre" class="hover:text-green-200 transition-colors">Sobre</a>
+                    <a href="#contato" class="hover:text-green-200 transition-colors">Contato</a>
+                    <a href="#trabalhe" class="hover:text-green-200 transition-colors">Trabalhe Conosco</a>
+                </div>
+                
+                <button id="menu-toggle" class="md:hidden">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+            
+            <div id="mobile-menu" class="md:hidden mt-4 hidden">
+                <div class="flex flex-col space-y-2">
+                    <a href="#inicio" class="hover:text-green-200 transition-colors py-2">Início</a>
+                    <a href="#produtos" class="hover:text-green-200 transition-colors py-2">Produtos</a>
+                    <a href="#orcamento" class="hover:text-green-200 transition-colors py-2">Orçamento</a>
+                    <a href="#sobre" class="hover:text-green-200 transition-colors py-2">Sobre</a>
+                    <a href="#contato" class="hover:text-green-200 transition-colors py-2">Contato</a>
+                    <a href="#trabalhe" class="hover:text-green-200 transition-colors py-2">Trabalhe Conosco</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="relative text-white py-20 min-h-full flex items-center">
+        <!-- Imagem de fundo -->
+        <div class="absolute inset-0 bg-cover bg-center bg-no-repeat" 
+             style="background-image: url('https://images.unsplash.com/photo-1596040033229-a9821ebd058d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');">
+        </div>
+        
+        <!-- Overlay escuro para melhor legibilidade -->
+        <div class="absolute inset-0 bg-black bg-opacity-50"></div>
+        
+        <!-- Padrão decorativo -->
+        <div class="absolute inset-0 hero-pattern opacity-30"></div>
+        
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="flex items-center justify-center min-h-[60vh]">
+                <div class="text-center max-w-4xl mx-auto">
+                    <h2 class="text-5xl font-bold mb-6 drop-shadow-lg">Sabor Autêntico em Cada Tempero</h2>
+                    <p class="text-xl mb-8 drop-shadow-md">
+                        Há anos trazendo o melhor da culinária brasileira para sua mesa com nossas linhas 
+                        Temperos Dona Nina e Cheiro da Terra
+                    </p>
+                    
+                    <!-- Destaques das Linhas -->
+                    <div class="grid md:grid-cols-2 gap-8 mb-8">
+                        <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
+                            <div class="w-16 h-16 mx-auto mb-3">
+                                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-full text-yellow-300">
+                                    <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" fill="currentColor" stroke="currentColor" stroke-width="1"/>
+                                </svg>
+                            </div>
+                            <h3 class="text-2xl font-bold mb-2">Temperos Dona Nina</h3>
+                            <p class="text-lg opacity-90">Linha gourmet para momentos especiais</p>
+                        </div>
+                        
+                        <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
+                            <div class="w-16 h-16 mx-auto mb-3">
+                                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-full text-green-300">
+                                    <path d="M12 2C13.1 2 14 2.9 14 4C14 5.1 13.1 6 12 6C10.9 6 10 5.1 10 4C10 2.9 10.9 2 12 2ZM21 9V7L15 6.5V9C15 10.66 13.66 12 12 12S9 10.66 9 12V6.5L3 7V9H5V19C5 20.1 5.9 21 7 21H17C18.1 21 19 20.1 19 19V9H21ZM11 14H13V17H11V14Z" fill="currentColor"/>
+                                </svg>
+                            </div>
+                            <h3 class="text-2xl font-bold mb-2">Cheiro da Terra</h3>
+                            <p class="text-lg opacity-90">Temperos tradicionais para o dia a dia</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                        <a href="#produtos" class="btn-primary text-white px-8 py-4 rounded-lg font-semibold text-lg inline-block shadow-lg">
+                            Conheça Nossos Produtos
+                        </a>
+                        <a href="#orcamento" class="bg-white text-green-700 border-2 border-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-green-50 transition-colors shadow-lg">
+                            Solicitar Orçamento
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Produtos Section -->
+    <section id="produtos" class="py-16 bg-gray-50 section-fade">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center text-gray-800 mb-4">Nossas Linhas de Produtos</h2>
+            <p class="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
+                Oferecemos duas linhas especiais de temperos para atender todos os gostos e necessidades
+            </p>
+
+            <!-- Linha Dona Nina -->
+            <div class="mb-16">
+                <div class="text-center mb-8">
+                    <div class="flex items-center justify-center mb-3">
+                        <div class="w-8 h-8 mr-3">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-full text-yellow-500">
+                                <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" fill="currentColor" stroke="currentColor" stroke-width="1"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-3xl font-bold text-green-700">Temperos Dona Nina</h3>
+                    </div>
+                    <p class="text-lg text-gray-600">Linha gourmet para quem busca sofisticação e sabor único</p>
+                </div>
+                
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div class="product-card bg-white rounded-lg p-6 shadow-md">
+                        <div class="w-16 h-16 mx-auto mb-4">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-full text-amber-600">
+                                <path d="M17.5 12C17.5 12.69 17.31 13.36 16.94 13.94L19.07 16.06C19.66 15.11 20 13.99 20 12.78C20 10.61 18.5 8.82 16.5 8.82C15.5 8.82 14.6 9.21 13.94 9.84L16.06 11.96C16.64 11.59 17.31 11.4 17.5 12ZM12 2C13.1 2 14 2.9 14 4C14 5.1 13.1 6 12 6C10.9 6 10 5.1 10 4C10 2.9 10.9 2 12 2ZM21 9V7L15 6.5V9C15 10.66 13.66 12 12 12S9 10.66 9 12V6.5L3 7V9H5V19C5 20.1 5.9 21 7 21H17C18.1 21 19 20.1 19 19V9H21Z" fill="currentColor"/>
+                            </svg>
+                        </div>
+                        <h4 class="font-bold text-lg mb-2">Tempero Completo Dona Nina</h4>
+                        <p class="text-gray-600 mb-2">1kg</p>
+                        <p class="text-sm text-gray-500">Blend gourmet de especiarias selecionadas</p>
+                        <button class="btn-primary text-white px-4 py-2 rounded mt-4 w-full" onclick="requestQuote('Tempero Completo Dona Nina 1kg')">
+                            Solicitar Orçamento
+                        </button>
+                    </div>
+                    
+                    <div class="product-card bg-white rounded-lg p-6 shadow-md">
+                        <div class="w-16 h-16 mx-auto mb-4">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-full text-purple-600">
+                                <path d="M12 2C6.48 2 2 6.48 2 12S6.48 22 12 22 22 17.52 22 12 17.52 2 12 2ZM12 20C7.59 20 4 16.41 4 12S7.59 4 12 4 20 7.59 20 12 16.41 20 12 20ZM12 6C9.79 6 8 7.79 8 10S9.79 14 12 14 16 12.21 16 10 14.21 6 12 6ZM12 12C10.9 12 10 11.1 10 10S10.9 8 12 8 14 8.9 14 10 13.1 12 12 12Z" fill="currentColor"/>
+                            </svg>
+                        </div>
+                        <h4 class="font-bold text-lg mb-2">Massa de Alho Dona Nina</h4>
+                        <p class="text-gray-600 mb-2">1kg</p>
+                        <p class="text-sm text-gray-500">Massa de alho premium para pratos especiais</p>
+                        <button class="btn-primary text-white px-4 py-2 rounded mt-4 w-full" onclick="requestQuote('Massa de Alho Dona Nina 1kg')">
+                            Solicitar Orçamento
+                        </button>
+                    </div>
+                    
+                    <div class="product-card bg-white rounded-lg p-6 shadow-md">
+                        <div class="w-16 h-16 mx-auto mb-4">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-full text-green-600">
+                                <path d="M12 2L13.09 8.26L22 9L17 14L18.18 21L12 17.77L5.82 21L7 14L2 9L8.91 8.26L12 2Z" fill="currentColor"/>
+                            </svg>
+                        </div>
+                        <h4 class="font-bold text-lg mb-2">Tempero Completo Dona Nina</h4>
+                        <p class="text-gray-600 mb-2">550g</p>
+                        <p class="text-sm text-gray-500">Versão compacta do nosso blend gourmet</p>
+                        <button class="btn-primary text-white px-4 py-2 rounded mt-4 w-full" onclick="requestQuote('Tempero Completo Dona Nina 550g')">
+                            Solicitar Orçamento
+                        </button>
+                    </div>
+                    
+                    <div class="product-card bg-white rounded-lg p-6 shadow-md">
+                        <div class="w-16 h-16 mx-auto mb-4">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-full text-purple-600">
+                                <path d="M12 2C6.48 2 2 6.48 2 12S6.48 22 12 22 22 17.52 22 12 17.52 2 12 2ZM12 20C7.59 20 4 16.41 4 12S7.59 4 12 4 20 7.59 20 12 16.41 20 12 20ZM12 6C9.79 6 8 7.79 8 10S9.79 14 12 14 16 12.21 16 10 14.21 6 12 6ZM12 12C10.9 12 10 11.1 10 10S10.9 8 12 8 14 8.9 14 10 13.1 12 12 12Z" fill="currentColor"/>
+                            </svg>
+                        </div>
+                        <h4 class="font-bold text-lg mb-2">Massa de Alho Dona Nina</h4>
+                        <p class="text-gray-600 mb-2">550g</p>
+                        <p class="text-sm text-gray-500">Massa de alho gourmet em porção ideal</p>
+                        <button class="btn-primary text-white px-4 py-2 rounded mt-4 w-full" onclick="requestQuote('Massa de Alho Dona Nina 550g')">
+                            Solicitar Orçamento
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Linha Cheiro da Terra -->
+            <div class="mb-16">
+                <div class="text-center mb-8">
+                    <div class="flex items-center justify-center mb-3">
+                        <div class="w-8 h-8 mr-3">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-full text-green-600">
+                                <path d="M12 2C13.1 2 14 2.9 14 4C14 5.1 13.1 6 12 6C10.9 6 10 5.1 10 4C10 2.9 10.9 2 12 2ZM21 9V7L15 6.5V9C15 10.66 13.66 12 12 12S9 10.66 9 12V6.5L3 7V9H5V19C5 20.1 5.9 21 7 21H17C18.1 21 19 20.1 19 19V9H21ZM11 14H13V17H11V14Z" fill="currentColor"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-3xl font-bold text-green-700">Cheiro da Terra</h3>
+                    </div>
+                    <p class="text-lg text-gray-600">Temperos tradicionais para o dia a dia da família brasileira</p>
+                </div>
+                
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="product-card bg-white rounded-lg p-6 shadow-md">
+                        <div class="w-16 h-16 mx-auto mb-4">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-full text-green-600">
+                                <path d="M12 2C13.1 2 14 2.9 14 4C14 5.1 13.1 6 12 6C10.9 6 10 5.1 10 4C10 2.9 10.9 2 12 2ZM21 9V7L15 6.5V9C15 10.66 13.66 12 12 12S9 10.66 9 12V6.5L3 7V9H5V19C5 20.1 5.9 21 7 21H17C18.1 21 19 20.1 19 19V9H21ZM11 14H13V17H11V14Z" fill="currentColor"/>
+                            </svg>
+                        </div>
+                        <h4 class="font-bold text-lg mb-2">Tempero Completo Cheiro da Terra</h4>
+                        <p class="text-gray-600 mb-2">1kg</p>
+                        <p class="text-sm text-gray-500">Tempero tradicional para uso diário</p>
+                        <button class="btn-primary text-white px-4 py-2 rounded mt-4 w-full" onclick="requestQuote('Tempero Completo Cheiro da Terra 1kg')">
+                            Solicitar Orçamento
+                        </button>
+                    </div>
+                    
+                    <div class="product-card bg-white rounded-lg p-6 shadow-md">
+                        <div class="w-16 h-16 mx-auto mb-4">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-full text-emerald-600">
+                                <path d="M17 8C8 10 5.9 16.17 3.82 21.34L5.71 22L6.66 19.7C7.14 19.87 7.64 20 8 20C19 20 22 3 22 3C21 5 14 5.25 9 6.25C4 7.25 2 11.5 2 13.5C2 15.5 3.75 17.25 3.75 17.25C7.5 13.5 12.5 12.5 17 8Z" fill="currentColor"/>
+                            </svg>
+                        </div>
+                        <h4 class="font-bold text-lg mb-2">Tempero Completo Cheiro da Terra</h4>
+                        <p class="text-gray-600 mb-2">300g</p>
+                        <p class="text-sm text-gray-500">Embalagem prática para o dia a dia</p>
+                        <button class="btn-primary text-white px-4 py-2 rounded mt-4 w-full" onclick="requestQuote('Tempero Completo Cheiro da Terra 300g')">
+                            Solicitar Orçamento
+                        </button>
+                    </div>
+                    
+                    <div class="product-card bg-white rounded-lg p-6 shadow-md">
+                        <div class="w-16 h-16 mx-auto mb-4">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-full text-orange-600">
+                                <path d="M5 3C3.9 3 3 3.9 3 5V19C3 20.1 3.9 21 5 21H19C20.1 21 21 20.1 21 19V5C21 3.9 20.1 3 19 3H5ZM5 5H19V19H5V5ZM7 7V9H17V7H7ZM7 11V13H17V11H7ZM7 15V17H14V15H7Z" fill="currentColor"/>
+                            </svg>
+                        </div>
+                        <h4 class="font-bold text-lg mb-2">Tempero Completo Cheiro da Terra</h4>
+                        <p class="text-gray-600 mb-2">Sachê 30g</p>
+                        <p class="text-sm text-gray-500">Porção individual para experimentar</p>
+                        <button class="btn-primary text-white px-4 py-2 rounded mt-4 w-full" onclick="requestQuote('Tempero Completo Cheiro da Terra Sachê 30g')">
+                            Solicitar Orçamento
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Orçamento Section -->
+    <section id="orcamento" class="py-16 bg-white section-fade">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center text-gray-800 mb-4">Solicite seu Orçamento</h2>
+            <p class="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
+                Preencha o formulário abaixo e receba uma proposta personalizada para seus produtos
+            </p>
+
+            <div class="max-w-2xl mx-auto">
+                <form id="orcamento-form" class="bg-gray-50 rounded-lg p-8 shadow-md">
+                    <div class="grid md:grid-cols-2 gap-6 mb-6">
+                        <div>
+                            <label for="nome" class="block text-sm font-medium text-gray-700 mb-2">Nome Completo *</label>
+                            <input type="text" id="nome" name="nome" required 
+                                   class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent">
+                        </div>
+                        <div>
+                            <label for="empresa" class="block text-sm font-medium text-gray-700 mb-2">Empresa</label>
+                            <input type="text" id="empresa" name="empresa" 
+                                   class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent">
+                        </div>
+                    </div>
+
+                    <div class="grid md:grid-cols-2 gap-6 mb-6">
+                        <div>
+                            <label for="telefone" class="block text-sm font-medium text-gray-700 mb-2">Telefone/WhatsApp *</label>
+                            <input type="tel" id="telefone" name="telefone" required 
+                                   class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent">
+                        </div>
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-gray-700 mb-2">E-mail</label>
+                            <input type="email" id="email" name="email" 
+                                   class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent">
+                        </div>
+                    </div>
+
+                    <div class="mb-6">
+                        <label for="produtos" class="block text-sm font-medium text-gray-700 mb-2">Produtos de Interesse *</label>
+                        <div class="grid md:grid-cols-2 gap-3">
+                            <label class="flex items-center">
+                                <input type="checkbox" name="produtos" value="Tempero Completo Dona Nina 1kg" class="mr-2">
+                                <span class="text-sm">Tempero Completo Dona Nina 1kg</span>
+                            </label>
+                            <label class="flex items-center">
+                                <input type="checkbox" name="produtos" value="Tempero Completo Dona Nina 550g" class="mr-2">
+                                <span class="text-sm">Tempero Completo Dona Nina 550g</span>
+                            </label>
+                            <label class="flex items-center">
+                                <input type="checkbox" name="produtos" value="Massa de Alho Dona Nina 1kg" class="mr-2">
+                                <span class="text-sm">Massa de Alho Dona Nina 1kg</span>
+                            </label>
+                            <label class="flex items-center">
+                                <input type="checkbox" name="produtos" value="Massa de Alho Dona Nina 550g" class="mr-2">
+                                <span class="text-sm">Massa de Alho Dona Nina 550g</span>
+                            </label>
+                            <label class="flex items-center">
+                                <input type="checkbox" name="produtos" value="Tempero Completo Cheiro da Terra 1kg" class="mr-2">
+                                <span class="text-sm">Tempero Completo Cheiro da Terra 1kg</span>
+                            </label>
+                            <label class="flex items-center">
+                                <input type="checkbox" name="produtos" value="Tempero Completo Cheiro da Terra 300g" class="mr-2">
+                                <span class="text-sm">Tempero Completo Cheiro da Terra 300g</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="mb-6">
+                        <label for="quantidade" class="block text-sm font-medium text-gray-700 mb-2">Quantidade Estimada</label>
+                        <select id="quantidade" name="quantidade" 
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent">
+                            <option value="">Selecione a quantidade</option>
+                            <option value="1-10 unidades">1-10 unidades</option>
+                            <option value="11-50 unidades">11-50 unidades</option>
+                            <option value="51-100 unidades">51-100 unidades</option>
+                            <option value="Mais de 100 unidades">Mais de 100 unidades</option>
+                        </select>
+                    </div>
+
+                    <div class="mb-6">
+                        <label for="mensagem" class="block text-sm font-medium text-gray-700 mb-2">Mensagem Adicional</label>
+                        <textarea id="mensagem" name="mensagem" rows="4" 
+                                  class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                                  placeholder="Conte-nos mais sobre suas necessidades..."></textarea>
+                    </div>
+
+                    <button type="submit" class="w-full btn-primary text-white py-4 px-6 rounded-lg font-semibold text-lg">
+                        Enviar Solicitação via WhatsApp
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sobre Section -->
+    <section id="sobre" class="py-16 bg-gray-50 section-fade">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-4xl font-bold text-center text-gray-800 mb-4">Sobre a Terranina Alimentos</h2>
+                <p class="text-center text-gray-600 mb-12 text-lg">
+                    Tradição e qualidade em cada tempero que produzimos
+                </p>
+
+                <div class="grid md:grid-cols-2 gap-12 items-center mb-12">
+                    <div>
+                        <h3 class="text-2xl font-bold text-green-700 mb-4">Nossa História</h3>
+                        <p class="text-gray-600 mb-4">
+                            A Terranina Alimentos nasceu da paixão pela culinária brasileira e do desejo de levar 
+                            temperos de qualidade superior para todas as mesas do país. Com anos de experiência 
+                            no mercado, desenvolvemos duas linhas especiais que atendem diferentes necessidades.
+                        </p>
+                        <p class="text-gray-600 mb-4">
+                            Nossa missão é preservar os sabores tradicionais enquanto inovamos com produtos 
+                            gourmet que elevam qualquer prato a um novo patamar de sabor.
+                        </p>
+                    </div>
+                    <div class="bg-white rounded-lg p-6 shadow-md">
+                        <div class="text-center">
+                            <div class="w-20 h-20 mx-auto mb-4">
+                                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-full text-green-600">
+                                    <path d="M12 2C13.1 2 14 2.9 14 4C14 5.1 13.1 6 12 6C10.9 6 10 5.1 10 4C10 2.9 10.9 2 12 2ZM21 9V7L15 6.5V9C15 10.66 13.66 12 12 12S9 10.66 9 12V6.5L3 7V9H5V19C5 20.1 5.9 21 7 21H17C18.1 21 19 20.1 19 19V9H21ZM11 14H13V17H11V14Z" fill="currentColor"/>
+                                </svg>
+                            </div>
+                            <h4 class="text-xl font-bold text-gray-800 mb-2">Qualidade Garantida</h4>
+                            <p class="text-gray-600">Ingredientes selecionados e processos rigorosos de qualidade</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="text-center">
+                        <div class="w-16 h-16 mx-auto mb-4">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-full text-green-600">
+                                <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" fill="currentColor"/>
+                            </svg>
+                        </div>
+                        <h4 class="text-xl font-bold text-gray-800 mb-2">Excelência</h4>
+                        <p class="text-gray-600">Produtos premium com sabor incomparável</p>
+                    </div>
+                    
+                    <div class="text-center">
+                        <div class="w-16 h-16 mx-auto mb-4">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-full text-green-600">
+                                <path d="M12 2C6.48 2 2 6.48 2 12S6.48 22 12 22 22 17.52 22 12 17.52 2 12 2ZM12 20C7.59 20 4 16.41 4 12S7.59 4 12 4 20 7.59 20 12 16.41 20 12 20ZM12.5 7H11V13L16.25 16.15L17 14.92L12.5 12.25V7Z" fill="currentColor"/>
+                            </svg>
+                        </div>
+                        <h4 class="text-xl font-bold text-gray-800 mb-2">Tradição</h4>
+                        <p class="text-gray-600">Receitas desenvolvidas ao longo de anos</p>
+                    </div>
+                    
+                    <div class="text-center">
+                        <div class="w-16 h-16 mx-auto mb-4">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-full text-green-600">
+                                <path d="M12 21.35L10.55 20.03C5.4 15.36 2 12.28 2 8.5C2 5.42 4.42 3 7.5 3C9.24 3 10.91 3.81 12 5.09C13.09 3.81 14.76 3 16.5 3C19.58 3 22 5.42 22 8.5C22 12.28 18.6 15.36 13.45 20.04L12 21.35Z" fill="currentColor"/>
+                            </svg>
+                        </div>
+                        <h4 class="text-xl font-bold text-gray-800 mb-2">Paixão</h4>
+                        <p class="text-gray-600">Amor pela culinária em cada produto</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contato Section -->
+    <section id="contato" class="py-16 bg-white section-fade">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center text-gray-800 mb-4">Entre em Contato</h2>
+            <p class="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
+                Estamos prontos para atender você. Entre em contato conosco!
+            </p>
+
+            <div class="grid md:grid-cols-2 gap-12 max-w-4xl mx-auto">
+                <!-- Informações de Contato -->
+                <div>
+                    <h3 class="text-2xl font-bold text-green-700 mb-6">Informações de Contato</h3>
+                    
+                    <div class="space-y-4">
+                        <div class="flex items-start space-x-3">
+                            <div class="w-6 h-6 text-green-600 mt-1">
+                                <svg fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-800">Endereço</h4>
+                                <p class="text-gray-600">Rua dos Temperos, 123<br>Centro - Cidade/Estado<br>CEP: 12345-678</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start space-x-3">
+                            <div class="w-6 h-6 text-green-600 mt-1">
+                                <svg fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-800">Telefone</h4>
+                                <p class="text-gray-600">(35) 3641-6431</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start space-x-3">
+                            <div class="w-6 h-6 text-green-600 mt-1">
+                                <svg fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-800">E-mail</h4>
+                                <p class="text-gray-600">contato@terranina.com.br</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start space-x-3">
+                            <div class="w-6 h-6 text-green-600 mt-1">
+                                <svg fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-800">Horário de Funcionamento</h4>
+                                <p class="text-gray-600">Segunda a Sexta: 8h às 18h<br>Sábado: 8h às 12h</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Formulário de Contato -->
+                <div>
+                    <h3 class="text-2xl font-bold text-green-700 mb-6">Envie uma Mensagem</h3>
+                    
+                    <form id="contato-form" class="space-y-4">
+                        <div>
+                            <label for="contato-nome" class="block text-sm font-medium text-gray-700 mb-2">Nome *</label>
+                            <input type="text" id="contato-nome" name="nome" required 
+                                   class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent">
+                        </div>
+                        
+                        <div>
+                            <label for="contato-email" class="block text-sm font-medium text-gray-700 mb-2">E-mail *</label>
+                            <input type="email" id="contato-email" name="email" required 
+                                   class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent">
+                        </div>
+                        
+                        <div>
+                            <label for="contato-telefone" class="block text-sm font-medium text-gray-700 mb-2">Telefone</label>
+                            <input type="tel" id="contato-telefone" name="telefone" 
+                                   class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent">
+                        </div>
+                        
+                        <div>
+                            <label for="contato-assunto" class="block text-sm font-medium text-gray-700 mb-2">Assunto *</label>
+                            <select id="contato-assunto" name="assunto" required 
+                                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent">
+                                <option value="">Selecione o assunto</option>
+                                <option value="Dúvidas sobre produtos">Dúvidas sobre produtos</option>
+                                <option value="Solicitação de orçamento">Solicitação de orçamento</option>
+                                <option value="Suporte técnico">Suporte técnico</option>
+                                <option value="Parcerias">Parcerias</option>
+                                <option value="Outros">Outros</option>
+                            </select>
+                        </div>
+                        
+                        <div>
+                            <label for="contato-mensagem" class="block text-sm font-medium text-gray-700 mb-2">Mensagem *</label>
+                            <textarea id="contato-mensagem" name="mensagem" rows="4" required 
+                                      class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                                      placeholder="Digite sua mensagem..."></textarea>
+                        </div>
+                        
+                        <button type="submit" class="w-full btn-primary text-white py-3 px-6 rounded-lg font-semibold">
+                            Enviar Mensagem
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trabalhe Conosco Section -->
+    <section id="trabalhe" class="py-16 bg-gray-50 section-fade">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center text-gray-800 mb-4">Trabalhe Conosco</h2>
+            <p class="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
+                Faça parte da nossa equipe e ajude a levar sabor para todo o Brasil
+            </p>
+
+            <div class="max-w-4xl mx-auto">
+                <div class="grid md:grid-cols-2 gap-12 mb-12">
+                    <div>
+                        <h3 class="text-2xl font-bold text-green-700 mb-4">Por que trabalhar conosco?</h3>
+                        <div class="space-y-4">
+                            <div class="flex items-start space-x-3">
+                                <div class="w-6 h-6 text-green-600 mt-1">
+                                    <svg fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-gray-800">Ambiente Colaborativo</h4>
+                                    <p class="text-gray-600">Trabalhe em uma equipe unida e focada no crescimento mútuo</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start space-x-3">
+                                <div class="w-6 h-6 text-green-600 mt-1">
+                                    <svg fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-gray-800">Oportunidades de Crescimento</h4>
+                                    <p class="text-gray-600">Desenvolva sua carreira em uma empresa em expansão</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start space-x-3">
+                                <div class="w-6 h-6 text-green-600 mt-1">
+                                    <svg fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-gray-800">Benefícios Competitivos</h4>
+                                    <p class="text-gray-600">Pacote completo de benefícios para você e sua família</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-lg p-6 shadow-md">
+                        <h3 class="text-xl font-bold text-gray-800 mb-4">Áreas de Interesse</h3>
+                        <div class="space-y-3">
+                            <div class="flex items-center space-x-2">
+                                <div class="w-2 h-2 bg-green-500 rounded-full"></div>
+                                <span class="text-gray-700">Produção e Qualidade</span>
+                            </div>
+                            <div class="flex items-center space-x-2">
+                                <div class="w-2 h-2 bg-green-500 rounded-full"></div>
+                                <span class="text-gray-700">Vendas e Marketing</span>
+                            </div>
+                            <div class="flex items-center space-x-2">
+                                <div class="w-2 h-2 bg-green-500 rounded-full"></div>
+                                <span class="text-gray-700">Logística e Distribuição</span>
+                            </div>
+                            <div class="flex items-center space-x-2">
+                                <div class="w-2 h-2 bg-green-500 rounded-full"></div>
+                                <span class="text-gray-700">Administrativo</span>
+                            </div>
+                            <div class="flex items-center space-x-2">
+                                <div class="w-2 h-2 bg-green-500 rounded-full"></div>
+                                <span class="text-gray-700">Desenvolvimento de Produtos</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-lg p-8 shadow-md">
+                    <h3 class="text-2xl font-bold text-green-700 mb-6 text-center">Envie seu Currículo</h3>
+                    
+                    <form id="curriculo-form" class="space-y-6">
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <label for="curr-nome" class="block text-sm font-medium text-gray-700 mb-2">Nome Completo *</label>
+                                <input type="text" id="curr-nome" name="nome" required 
+                                       class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent">
+                            </div>
+                            <div>
+                                <label for="curr-email" class="block text-sm font-medium text-gray-700 mb-2">E-mail *</label>
+                                <input type="email" id="curr-email" name="email" required 
+                                       class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent">
+                            </div>
+                        </div>
+                        
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <label for="curr-telefone" class="block text-sm font-medium text-gray-700 mb-2">Telefone *</label>
+                                <input type="tel" id="curr-telefone" name="telefone" required 
+                                       class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent">
+                            </div>
+                            <div>
+                                <label for="curr-area" class="block text-sm font-medium text-gray-700 mb-2">Área de Interesse *</label>
+                                <select id="curr-area" name="area" required 
+                                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent">
+                                    <option value="">Selecione a área</option>
+                                    <option value="Produção e Qualidade">Produção e Qualidade</option>
+                                    <option value="Vendas e Marketing">Vendas e Marketing</option>
+                                    <option value="Logística e Distribuição">Logística e Distribuição</option>
+                                    <option value="Administrativo">Administrativo</option>
+                                    <option value="Desenvolvimento de Produtos">Desenvolvimento de Produtos</option>
+                                    <option value="Outras áreas">Outras áreas</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <label for="curr-experiencia" class="block text-sm font-medium text-gray-700 mb-2">Experiência Profissional</label>
+                            <textarea id="curr-experiencia" name="experiencia" rows="4" 
+                                      class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                                      placeholder="Descreva sua experiência profissional relevante..."></textarea>
+                        </div>
+                        
+                        <div>
+                            <label for="curr-motivacao" class="block text-sm font-medium text-gray-700 mb-2">Por que quer trabalhar conosco?</label>
+                            <textarea id="curr-motivacao" name="motivacao" rows="3" 
+                                      class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                                      placeholder="Conte-nos sua motivação..."></textarea>
+                        </div>
+                        
+                        <button type="submit" class="w-full btn-primary text-white py-4 px-6 rounded-lg font-semibold text-lg">
+                            Enviar Currículo via WhatsApp
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="gradient-bg text-white py-12">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <div class="flex items-center space-x-3 mb-4">
+                        <div class="w-10 h-10 bg-white rounded-full flex items-center justify-center">
+                            <span class="text-lg font-bold text-green-700">T</span>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold">Terranina Alimentos</h3>
+                        </div>
+                    </div>
+                    <p class="text-sm opacity-90">
+                        Temperos que fazem a diferença na sua cozinha. Qualidade e sabor em cada produto.
+                    </p>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Produtos</h4>
+                    <ul class="space-y-2 text-sm opacity-90">
+                        <li>Temperos Dona Nina</li>
+                        <li>Cheiro da Terra</li>
+                        <li>Massa de Alho</li>
+                        <li>Temperos Completos</li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Links Úteis</h4>
+                    <ul class="space-y-2 text-sm opacity-90">
+                        <li><a href="#sobre" class="hover:text-green-200">Sobre Nós</a></li>
+                        <li><a href="#produtos" class="hover:text-green-200">Produtos</a></li>
+                        <li><a href="#orcamento" class="hover:text-green-200">Orçamento</a></li>
+                        <li><a href="#contato" class="hover:text-green-200">Contato</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Contato</h4>
+                    <div class="space-y-2 text-sm opacity-90">
+                        <p>📞 (35) 3641-6431</p>
+                        <p>📧 contato@terranina.com.br</p>
+                        <p>📍 Centro - Cidade/Estado</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-white/20 pt-8 text-center">
+                <p class="text-sm opacity-90">
+                    © 2024 Terranina Alimentos Ltda. Todos os direitos reservados.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Flutuante -->
+    <div class="floating-whatsapp">
+        <!-- Botão WhatsApp -->
+        <button id="whatsapp-btn"
+                class="relative bg-green-500 text-white p-4 rounded-full shadow-lg hover:bg-green-600 transition-all duration-300 hover:scale-110 group">
+            
+            <!-- Indicador online -->
+            <div class="absolute -top-1 -right-1 w-4 h-4 bg-green-400 rounded-full border-2 border-white animate-pulse"></div>
+            
+            <!-- Ícone WhatsApp -->
+            <svg class="w-7 h-7 relative z-10" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.890-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.488"/>
+            </svg>
+            
+            <!-- Efeito de ondas -->
+            <div class="absolute inset-0 rounded-full bg-green-400 opacity-75 whatsapp-ripple"></div>
+        </button>
+    </div>
+
+    <script>
+        // Função SIMPLES para solicitar orçamento - FUNCIONA COM WHATSAPP PESSOAL
+        function requestQuote(productName) {
+            // Seu número do WhatsApp (ALTERE AQUI PARA SEU NÚMERO)
+            const phoneNumber = '5535364116431'; // Formato: código país + DDD + número
+            
+            // Mensagem simples sem quebras de linha
+            const message = `Olá! Gostaria de solicitar um orçamento para: ${productName}. Vim através do site da Terranina Alimentos.`;
+            
+            // Tentar abrir WhatsApp
+            const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+            
+            // Abrir em nova aba
+            const newWindow = window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
+            
+            // Se não abrir, mostrar modal com opções
+            setTimeout(() => {
+                if (!newWindow || newWindow.closed || typeof newWindow.closed === 'undefined') {
+                    showWhatsAppModal(phoneNumber, message);
+                }
+            }, 2000);
+        }
+
+        // Função para processar formulário de orçamento
+        function processQuoteForm(formData) {
+            const phoneNumber = '5535364116431';
+            const produtos = Array.from(formData.getAll('produtos')).join(', ');
+            
+            let message = `Olá! Solicito orçamento através do site. `;
+            message += `Nome: ${formData.get('nome')}. `;
+            if (formData.get('empresa')) message += `Empresa: ${formData.get('empresa')}. `;
+            message += `Telefone: ${formData.get('telefone')}. `;
+            if (formData.get('email')) message += `Email: ${formData.get('email')}. `;
+            message += `Produtos: ${produtos}. `;
+            if (formData.get('quantidade')) message += `Quantidade: ${formData.get('quantidade')}. `;
+            if (formData.get('mensagem')) message += `Observações: ${formData.get('mensagem')}`;
+            
+            const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+            const newWindow = window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
+            
+            setTimeout(() => {
+                if (!newWindow || newWindow.closed || typeof newWindow.closed === 'undefined') {
+                    showWhatsAppModal(phoneNumber, message);
+                }
+            }, 2000);
+        }
+
+        // Função para processar formulário de contato
+        function processContactForm(formData) {
+            const phoneNumber = '5535364116431';
+            
+            let message = `Olá! Entro em contato através do site. `;
+            message += `Nome: ${formData.get('nome')}. `;
+            message += `Email: ${formData.get('email')}. `;
+            if (formData.get('telefone')) message += `Telefone: ${formData.get('telefone')}. `;
+            message += `Assunto: ${formData.get('assunto')}. `;
+            message += `Mensagem: ${formData.get('mensagem')}`;
+            
+            const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+            const newWindow = window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
+            
+            setTimeout(() => {
+                if (!newWindow || newWindow.closed || typeof newWindow.closed === 'undefined') {
+                    showWhatsAppModal(phoneNumber, message);
+                }
+            }, 2000);
+        }
+
+        // Função para processar formulário de currículo
+        function processCurriculumForm(formData) {
+            const phoneNumber = '5535364116431';
+            
+            let message = `Olá! Envio currículo através do site. `;
+            message += `Nome: ${formData.get('nome')}. `;
+            message += `Email: ${formData.get('email')}. `;
+            message += `Telefone: ${formData.get('telefone')}. `;
+            message += `Área de interesse: ${formData.get('area')}. `;
+            if (formData.get('experiencia')) message += `Experiência: ${formData.get('experiencia')}. `;
+            if (formData.get('motivacao')) message += `Motivação: ${formData.get('motivacao')}`;
+            
+            const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+            const newWindow = window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
+            
+            setTimeout(() => {
+                if (!newWindow || newWindow.closed || typeof newWindow.closed === 'undefined') {
+                    showWhatsAppModal(phoneNumber, message);
+                }
+            }, 2000);
+        }
+
+        // Modal de fallback para quando WhatsApp não abre
+        function showWhatsAppModal(phoneNumber, message) {
+            const modal = document.createElement('div');
+            modal.className = 'fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-[10000]';
+            modal.innerHTML = `
+                <div class="bg-white rounded-lg p-6 max-w-md w-90 mx-4">
+                    <div class="text-center mb-4">
+                        <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                            <svg class="w-8 h-8 text-green-600" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.890-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.488"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-lg font-bold text-gray-800 mb-2">📱 WhatsApp não abriu?</h3>
+                        <p class="text-gray-600 text-sm mb-4">Sem problemas! Use uma das opções abaixo:</p>
+                    </div>
+                    
+                    <div class="space-y-3">
+                        <!-- Tentar novamente -->
+                        <button onclick="window.open('https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}', '_blank'); closeModal();" 
+                                class="w-full bg-green-500 hover:bg-green-600 text-white py-3 px-4 rounded-lg font-semibold">
+                            🔄 Tentar Novamente
+                        </button>
+                        
+                        <!-- Copiar número -->
+                        <div class="bg-gray-50 rounded-lg p-3">
+                            <label class="block text-sm font-medium text-gray-700 mb-2">📞 Número:</label>
+                            <div class="flex items-center space-x-2">
+                                <input type="text" value="+${phoneNumber}" readonly 
+                                       class="flex-1 px-3 py-2 bg-white border rounded text-sm">
+                                <button onclick="copyText('+${phoneNumber}')" 
+                                        class="bg-blue-500 hover:bg-blue-600 text-white px-3 py-2 rounded text-sm">
+                                    📋
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <!-- Copiar mensagem -->
+                        <div class="bg-gray-50 rounded-lg p-3">
+                            <label class="block text-sm font-medium text-gray-700 mb-2">💬 Mensagem:</label>
+                            <div class="flex items-start space-x-2">
+                                <textarea readonly class="flex-1 px-3 py-2 bg-white border rounded text-sm h-16">${message}</textarea>
+                                <button onclick="copyText('${message.replace(/'/g, "\\'")}');" 
+                                        class="bg-blue-500 hover:bg-blue-600 text-white px-3 py-2 rounded text-sm">
+                                    📋
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <!-- Instruções -->
+                        <div class="bg-yellow-50 border border-yellow-200 rounded-lg p-3">
+                            <h4 class="font-semibold text-yellow-800 text-sm mb-1">💡 Como fazer:</h4>
+                            <ol class="text-xs text-yellow-700 space-y-1">
+                                <li>1. Copie o número e a mensagem</li>
+                                <li>2. Abra o WhatsApp</li>
+                                <li>3. Inicie conversa com o número</li>
+                                <li>4. Cole e envie a mensagem</li>
+                            </ol>
+                        </div>
+                    </div>
+                    
+                    <button onclick="closeModal()" 
+                            class="w-full mt-4 bg-gray-500 hover:bg-gray-600 text-white py-2 px-4 rounded-lg">
+                        Fechar
+                    </button>
+                </div>
+            `;
+            
+            document.body.appendChild(modal);
+        }
+
+        // Função para copiar texto
+        function copyText(text) {
+            if (navigator.clipboard) {
+                navigator.clipboard.writeText(text).then(() => {
+                    showToast('📋 Copiado!');
+                });
+            } else {
+                // Fallback
+                const textarea = document.createElement('textarea');
+                textarea.value = text;
+                document.body.appendChild(textarea);
+                textarea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textarea);
+                showToast('📋 Copiado!');
+            }
+        }
+
+        // Função para mostrar toast
+        function showToast(message) {
+            const toast = document.createElement('div');
+            toast.className = 'fixed top-4 right-4 bg-green-500 text-white px-4 py-2 rounded-lg z-[10001]';
+            toast.textContent = message;
+            document.body.appendChild(toast);
+            
+            setTimeout(() => {
+                if (document.body.contains(toast)) {
+                    document.body.removeChild(toast);
+                }
+            }, 2000);
+        }
+
+        // Função para fechar modal
+        function closeModal() {
+            const modal = document.querySelector('.fixed.inset-0.bg-black');
+            if (modal && document.body.contains(modal)) {
+                document.body.removeChild(modal);
+            }
+        }
+
+        // Inicialização
+        document.addEventListener('DOMContentLoaded', function() {
+            // Menu mobile
+            const menuToggle = document.getElementById('menu-toggle');
+            const mobileMenu = document.getElementById('mobile-menu');
+            
+            menuToggle.addEventListener('click', function() {
+                mobileMenu.classList.toggle('hidden');
+            });
+
+            // Smooth scrolling
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                        mobileMenu.classList.add('hidden');
+                    }
+                });
+            });
+
+            // Animação de fade-in
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.section-fade').forEach(section => {
+                observer.observe(section);
+            });
+
+            // Botão WhatsApp - ação direta
+            document.getElementById('whatsapp-btn').addEventListener('click', function() {
+                requestQuote('Informações gerais sobre produtos');
+            });
+
+            // Formulário de orçamento
+            const orcamentoForm = document.getElementById('orcamento-form');
+            if (orcamentoForm) {
+                orcamentoForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    const formData = new FormData(this);
+                    
+                    // Validar se pelo menos um produto foi selecionado
+                    const produtos = formData.getAll('produtos');
+                    if (produtos.length === 0) {
+                        showToast('⚠️ Selecione pelo menos um produto');
+                        return;
+                    }
+                    
+                    processQuoteForm(formData);
+                });
+            }
+
+            // Formulário de contato
+            const contatoForm = document.getElementById('contato-form');
+            if (contatoForm) {
+                contatoForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    const formData = new FormData(this);
+                    processContactForm(formData);
+                });
+            }
+
+            // Formulário de currículo
+            const curriculoForm = document.getElementById('curriculo-form');
+            if (curriculoForm) {
+                curriculoForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    const formData = new FormData(this);
+                    processCurriculumForm(formData);
+                });
+            }
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9901a48ad10fcace',t:'MTc2MDcyMzQ3My4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
