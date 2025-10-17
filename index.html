@@ -531,7 +531,7 @@
                             </div>
                             <div>
                                 <h4 class="font-semibold text-gray-800">Endereço</h4>
-                                <p class="text-gray-600">Rua dos Temperos, 123<br>Centro - Cidade/Estado<br>CEP: 12345-678</p>
+                                <p class="text-gray-600">Avenida Jarbas Guimarães Neto, 2735<br>Vargem Grande - Brazópolis/MG<br>CEP: 37.530-000</p>
                             </div>
                         </div>
                         
@@ -543,7 +543,7 @@
                             </div>
                             <div>
                                 <h4 class="font-semibold text-gray-800">Telefone</h4>
-                                <p class="text-gray-600">(35) 3641-6431</p>
+                                <p class="text-gray-600">(35) 3641-1643</p>
                             </div>
                         </div>
                         
@@ -555,7 +555,7 @@
                             </div>
                             <div>
                                 <h4 class="font-semibold text-gray-800">E-mail</h4>
-                                <p class="text-gray-600">contato@terranina.com.br</p>
+                                <p class="text-gray-600">terraninaalimentosltda@gmail.com</p>
                             </div>
                         </div>
                         
@@ -567,7 +567,7 @@
                             </div>
                             <div>
                                 <h4 class="font-semibold text-gray-800">Horário de Funcionamento</h4>
-                                <p class="text-gray-600">Segunda a Sexta: 8h às 18h<br>Sábado: 8h às 12h</p>
+                                <p class="text-gray-600">Segunda a Sexta: 7h às 17h<br></p>
                             </div>
                         </div>
                     </div>
@@ -805,8 +805,8 @@
                 <div>
                     <h4 class="text-lg font-semibold mb-4">Contato</h4>
                     <div class="space-y-2 text-sm opacity-90">
-                        <p>📞 (35) 3641-6431</p>
-                        <p>📧 contato@terranina.com.br</p>
+                        <p>📞 (35) 3641-1643</p>
+                        <p>📧 terraninaalimentosltda@gmail.com</p>
                         <p>📍 Centro - Cidade/Estado</p>
                     </div>
                 </div>
@@ -843,7 +843,7 @@
         // Função SIMPLES para solicitar orçamento - FUNCIONA COM WHATSAPP PESSOAL
         function requestQuote(productName) {
             // Seu número do WhatsApp (ALTERE AQUI PARA SEU NÚMERO)
-            const phoneNumber = '5535364116431'; // Formato: código país + DDD + número
+            const phoneNumber = '553536411643'; // Formato: código país + DDD + número
             
             // Mensagem simples sem quebras de linha
             const message = `Olá! Gostaria de solicitar um orçamento para: ${productName}. Vim através do site da Terranina Alimentos.`;
@@ -864,7 +864,7 @@
 
         // Função para processar formulário de orçamento
         function processQuoteForm(formData) {
-            const phoneNumber = '5535364116431';
+            const phoneNumber = '553536411643';
             const produtos = Array.from(formData.getAll('produtos')).join(', ');
             
             let message = `Olá! Solicito orçamento através do site. `;
@@ -888,7 +888,7 @@
 
         // Função para processar formulário de contato
         function processContactForm(formData) {
-            const phoneNumber = '5535364116431';
+            const phoneNumber = '553536411643';
             
             let message = `Olá! Entro em contato através do site. `;
             message += `Nome: ${formData.get('nome')}. `;
@@ -909,7 +909,7 @@
 
         // Função para processar formulário de currículo
         function processCurriculumForm(formData) {
-            const phoneNumber = '5535364116431';
+            const phoneNumber = '553536411643';
             
             let message = `Olá! Envio currículo através do site. `;
             message += `Nome: ${formData.get('nome')}. `;
